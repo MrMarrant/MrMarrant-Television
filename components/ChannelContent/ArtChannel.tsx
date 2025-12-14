@@ -25,7 +25,7 @@ const ArtChannel: React.FC = () => {
       `}</style>
 
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-black/90 backdrop-blur-md border-b border-white/10 p-4 flex justify-between items-center shadow-lg">
+      <div className="sticky top-0 z-10 bg-black/90 border-b border-white/10 p-4 flex justify-between items-center shadow-lg">
         <h1 className="text-white font-tech text-xl tracking-widest uppercase flex items-center gap-2">
             <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
             Digital Gallery

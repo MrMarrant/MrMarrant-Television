@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ChannelType, TVState } from '../types';
 import { CHANNELS, MAX_VOLUME } from '../constants';
 import StaticChannel from './ChannelContent/StaticChannel';
+import GuideChannel from './ChannelContent/GuideChannel';
 import ArtChannel from './ChannelContent/ArtChannel';
 import ProfileChannel from './ChannelContent/ProfileChannel';
 import ProjectsChannel from './ChannelContent/ProjectsChannel';
@@ -40,11 +41,12 @@ const TV: React.FC<TVProps> = ({ state }) => {
     if (!channel) return <StaticChannel />;
 
     switch (channel.type) {
+      case ChannelType.GUIDE: return <GuideChannel />;
       case ChannelType.PROFILE: return <ProfileChannel />;
       case ChannelType.PROJECTS: return <ProjectsChannel />;
       case ChannelType.SCP: return <SCPChannel />;
       case ChannelType.ART: return <ArtChannel />;
-      case ChannelType.IMAGE:
+      case ChannelType.IMAGE: 
         return (
             <div className="w-full h-full relative">
                  <img src={`https://picsum.photos/800/600?random=${Date.now()}`} alt="Zen" className="w-full h-full object-cover" />

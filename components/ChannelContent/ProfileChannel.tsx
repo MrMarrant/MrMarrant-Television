@@ -12,7 +12,7 @@ const ProfileChannel: React.FC = () => {
       `}</style>
 
       {/* Broadcast Header Overlay */}
-      <div className="sticky top-0 z-20 bg-[#f0f0f0]/95 backdrop-blur-sm border-b-2 border-red-600 px-6 py-3 flex justify-between items-center shadow-sm">
+      <div className="sticky top-0 z-20 bg-[#f0f0f0]/95 border-b-2 border-red-600 px-6 py-3 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-2">
             <span className="bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider">Profile</span>
             <span className="text-neutral-500 text-xs font-mono">LIVE_FEED_894</span>
