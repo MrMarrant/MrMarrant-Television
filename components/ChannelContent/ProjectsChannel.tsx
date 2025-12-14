@@ -1,8 +1,9 @@
 import React from 'react';
-import { getConfigValue, getData } from '../../lib/useData';
+import { getData } from '../../lib/useData';
+import { Project } from '@/types';
 
 const ProjectsChannel: React.FC = () => {
-  const projects = getData<string>("projects");
+  const projects: Project[] = getData("projects");
 
   return (
     <div className="w-full h-full bg-[#11001c] text-white overflow-y-auto relative font-sans scroll-smooth no-scrollbar">

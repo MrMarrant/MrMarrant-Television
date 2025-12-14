@@ -10,5 +10,6 @@ export const CHANNELS: Channel[] = [
 
 export const TOTAL_CHANNELS = CHANNELS.length;
 export const MAX_VOLUME = 10;
-export const MRMARRANT_DATAS = await fetch("https://pastebin.com/raw/3UkfrnXe")
-console.log(MRMARRANT_DATAS)
+
+const response = await fetch('/pastebin/3UkfrnXe');
+export const MRMARRANT_DATAS = await response.json()

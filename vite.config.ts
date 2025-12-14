@@ -8,6 +8,14 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        proxy: {
+          '/pastebin': {
+            target: 'https://pastebin.com',
+            changeOrigin: true,
+            secure: true,
+            rewrite: (path) => path.replace(/^\/pastebin/, '/raw')
+          }
+        },
       },
       plugins: [react()],
       resolve: {
