@@ -1,5 +1,4 @@
 import { Channel, ChannelType } from './types';
-import { getDatas } from "@/lib/getDatas";
 
 export const CHANNELS: Channel[] = [
   { number: 1, name: "GUIDE", type: ChannelType.GUIDE, description: "Channel Listings" },
@@ -11,5 +10,5 @@ export const CHANNELS: Channel[] = [
 
 export const TOTAL_CHANNELS = CHANNELS.length;
 export const MAX_VOLUME = 10;
-
-export const PROJECTS = getDatas<string>("projects");
+export const MRMARRANT_DATAS = await fetch("https://pastebin.com/raw/3UkfrnXe")
+console.log(MRMARRANT_DATAS)

@@ -1,39 +1,5 @@
 import React from 'react';
-
-const SOCIAL_NETWORKS = [
-  {
-    id: 'NET_01',
-    name: 'GitHub',
-    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
-    url: 'https://github.com',
-    status: 'ACTIVE',
-    clearance: 'LEVEL 2'
-  },
-  {
-    id: 'NET_02',
-    name: 'Twitter (X)',
-    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg',
-    url: 'https://twitter.com',
-    status: 'MONITORED',
-    clearance: 'LEVEL 1'
-  },
-  {
-    id: 'NET_03',
-    name: 'LinkedIn',
-    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg',
-    url: 'https://linkedin.com',
-    status: 'RESTRICTED',
-    clearance: 'LEVEL 3'
-  },
-  {
-    id: 'NET_04',
-    name: 'Discord',
-    image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-original.svg',
-    url: 'https://discord.com',
-    status: 'ENCRYPTED',
-    clearance: 'LEVEL 4'
-  }
-];
+import { useData } from '../../lib/useData';
 
 const Redacted: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
   <span className="bg-black text-black hover:bg-transparent hover:text-black transition-colors duration-300 px-1 cursor-help select-none">
@@ -42,6 +8,8 @@ const Redacted: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
 );
 
 const SCPChannel: React.FC = () => {
+  const { socials } = useData("socials");
+
   return (
     <div className="w-full h-full bg-[#f4f1ea] text-neutral-900 overflow-y-auto font-mono relative">
         {/* Background Texture */}
@@ -86,7 +54,7 @@ const SCPChannel: React.FC = () => {
                 </h3>
                 
                 <div className="grid gap-4">
-                    {SOCIAL_NETWORKS.map((net) => (
+                    {socials.map((net) => (
                         <a 
                             key={net.id}
                             href={net.url}

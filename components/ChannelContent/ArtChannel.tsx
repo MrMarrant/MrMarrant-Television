@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
-
-const ART_IMAGES = [
-  { id: 1, url: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=800&q=80', title: 'Abstract Waves' },
-  { id: 2, url: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80', title: 'Creative Paint' },
-  { id: 3, url: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=80', title: 'Modern Shapes' },
-  { id: 4, url: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800&q=80', title: 'Neon Fluid' },
-  { id: 5, url: 'https://images.unsplash.com/photo-1579783902614-a3fb39279c0f?auto=format&fit=crop&w=800&q=80', title: 'Digital Texture' },
-  { id: 6, url: 'https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=800&q=80', title: 'Cyber Mist' },
-  { id: 7, url: 'https://images.unsplash.com/photo-1550100136-e074fa9dc0ea?auto=format&fit=crop&w=800&q=80', title: 'Void Glitch' },
-  { id: 8, url: 'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80', title: 'Neon Lights' },
-];
+import { useData } from '../../lib/useData';
 
 const ArtChannel: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { art } = useData("art");
 
   return (
     <div className="w-full h-full bg-neutral-900 overflow-y-auto relative art-scrollbar">
@@ -35,22 +26,22 @@ const ArtChannel: React.FC = () => {
 
       {/* Gallery Grid */}
       <div className="p-4 grid grid-cols-2 md:grid-cols-3 gap-4 pb-20">
-        {ART_IMAGES.map((art) => (
+        {art.map((item) => (
           <button 
-            key={art.id}
-            onClick={() => setSelectedImage(art.url)}
+            key={item.id}
+            onClick={() => setSelectedImage(item.url)}
             className="group relative aspect-square overflow-hidden rounded-lg border border-white/5 hover:border-pink-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
           >
             <div className="absolute inset-0 bg-neutral-800 animate-pulse"></div>
             <img 
-              src={art.url} 
-              alt={art.title}
+              src={item.url} 
+              alt={item.title}
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
             />
             {/* Overlay Title */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-              <span className="text-white text-xs font-mono tracking-wider border-l-2 border-pink-500 pl-2">{art.title}</span>
+              <span className="text-white text-xs font-mono tracking-wider border-l-2 border-pink-500 pl-2">{item.title}</span>
             </div>
           </button>
         ))}

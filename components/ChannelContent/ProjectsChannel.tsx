@@ -1,41 +1,9 @@
-import React from 'react'; // Example usage of GetDatas
-
-const PROJECTS = [
-  {
-    id: 1,
-    name: "Neon City Racer",
-    description: "A high-octane cyberpunk racing game built with WebGL and React Three Fiber.",
-    image: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80",
-    techIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    link: "https://reactjs.org" // Example link
-  },
-  {
-    id: 2,
-    name: "Quantum Chat",
-    description: "End-to-end encrypted messaging platform using quantum key distribution simulation.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
-    techIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    link: "https://python.org"
-  },
-  {
-    id: 3,
-    name: "Eco-Scanner AI",
-    description: "Mobile app that identifies recyclable materials using on-device machine learning.",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80",
-    techIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
-    link: "https://tensorflow.org"
-  },
-  {
-    id: 4,
-    name: "Void Walker",
-    description: "An immersive VR experience exploring procedural landscapes.",
-    image: "https://images.unsplash.com/photo-1622979135228-5b1ed31779b2?auto=format&fit=crop&w=600&q=80",
-    techIcon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg",
-    link: "https://unity.com"
-  }
-];
+import React from 'react';
+import { getConfigValue, getData } from '../../lib/useData';
 
 const ProjectsChannel: React.FC = () => {
+  const projects = getData<string>("projects");
+
   return (
     <div className="w-full h-full bg-[#11001c] text-white overflow-y-auto relative font-sans scroll-smooth no-scrollbar">
       <style>{`
@@ -49,7 +17,7 @@ const ProjectsChannel: React.FC = () => {
       `}</style>
 
       {/* Show Header */}
-      <div className="top-0 z-20 bg-gradient-to-b from-[#11001c] to-[#11001c]/0 pt-6 pb-8 px-6">
+      <div className="sticky top-0 z-20 bg-gradient-to-b from-[#11001c] to-[#11001c]/0 pt-6 pb-8 px-6">
         <div className="flex justify-between items-end border-b-2 border-fuchsia-500 pb-2">
             <div>
                 <h1 className="text-4xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600 drop-shadow-[0_0_10px_rgba(232,121,249,0.5)]">
@@ -65,7 +33,7 @@ const ProjectsChannel: React.FC = () => {
 
       {/* Projects List */}
       <div className="px-6 pb-20 flex flex-col gap-8">
-        {PROJECTS.map((project, index) => (
+        {projects.map((project, index) => (
           <a 
             key={project.id} 
             href={project.link}
