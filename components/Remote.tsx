@@ -50,7 +50,7 @@ const Remote: React.FC<RemoteProps> = ({
         {/* Fillers for 3x3 grid if needed, or just numpad style */}
         {[6,7,8,9].map(n => (
             !CHANNELS.find(c => c.number === n) && (
-                <button key={n} disabled className="w-full aspect-square rounded-lg bg-neutral-800 text-neutral-600 font-bold shadow-inner border border-neutral-700/30 flex items-center justify-center cursor-not-allowed">
+                <button key={n} disabled className="w-full aspect-square rounded-lg bg-neutral-800 text-neutral-600 font-bold shadow-inner border border-neutral-700/30 flex items-center justify-center cursor-not-allowed p-4">
                     {n}
                 </button>
             )
@@ -76,12 +76,12 @@ const Remote: React.FC<RemoteProps> = ({
       </div>
 
       {/* Mute Button */}
-       <button 
+      <button 
           onClick={onMute}
           className="w-12 h-12 rounded-full bg-neutral-700 text-neutral-400 shadow-[0_3px_0_rgba(0,0,0,0.4)] active:translate-y-[3px] active:shadow-none transition-all text-xs font-bold uppercase"
         >
           Mute
-        </button>
+      </button>
 
     </div>
   );

@@ -19,10 +19,9 @@ const ArtChannel: React.FC = () => {
       {/* Header */}
       <div className="sticky top-0 z-10 bg-black/90 border-b border-white/10 p-4 flex justify-between items-center shadow-lg">
         <h1 className="text-white font-tech text-xl tracking-widest uppercase flex items-center gap-2">
-          <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
-          Digital Gallery
+          THE DARK PLACE
         </h1>
-        <div className="text-xs text-neutral-400 font-mono">[CURATED_BY_AI]</div>
+        <div className="text-xs text-neutral-400 font-mono">[THE DARKER THE BETTER]</div>
       </div>
 
       {/* Gallery Grid */}
@@ -50,7 +49,7 @@ const ArtChannel: React.FC = () => {
 
       {/* Zoom Modal Overlay */}
       {selectedImage && (
-        <div className="absolute inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center animate-[fadeIn_0.2s_ease-out]">
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center animate-[fadeIn_0.2s_ease-out]">
 
           {/* Close area (background click) */}
           <div className="absolute inset-0" onClick={() => setSelectedImage(null)}></div>
@@ -70,10 +69,6 @@ const ArtChannel: React.FC = () => {
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
-
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-xs font-mono tracking-widest pointer-events-none">
-            VIEWING_MODE: FULL_SCREEN
-          </div>
         </div>
       )}
 

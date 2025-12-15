@@ -22,8 +22,8 @@ const SCPChannel: React.FC = () => {
                 <header className="border-b-2 border-black pb-4 mb-6 flex justify-between items-start">
                     <div>
                         <h1 className="text-3xl md:text-4xl font-black uppercase mb-1">SCP Database</h1>
-                        <p className="text-sm font-bold">Item #: SCP-<Redacted>7902</Redacted></p>
-                        <p className="text-sm font-bold">Object Class: <span className="text-red-700">Keter</span></p>
+                        <p className="text-sm font-bold">Item #: SCP-<Redacted>2030-J</Redacted></p>
+                        <p className="text-sm font-bold">Object Class: <span className="text-red-700">Thaumiel</span></p>
                     </div>
                     <div className="border-2 border-black p-2 max-w-[100px] rotate-2 opacity-80">
                         <div className="w-full h-full flex items-center justify-center text-center text-[0.6rem] font-bold uppercase leading-tight">
@@ -35,10 +35,12 @@ const SCPChannel: React.FC = () => {
                 {/* Description Body */}
                 <div className="mb-8 space-y-4 text-sm md:text-base leading-relaxed text-justify">
                     <p>
-                        <strong>Special Containment Procedures:</strong> SCP-7902 is to be contained within a digital air-gapped server at Site-<Redacted>19</Redacted>. Access is restricted to personnel with Clearance Level 4 or higher. Any unauthorized attempts to access the following communication channels will result in immediate <Redacted>termination</Redacted>.
+                        <strong>Special Containment Procedures:</strong> SCP-<Redacted>2030-J</Redacted> must be contained in a Panasonic CT-20D10B type CRT television at Site-<Redacted>44</Redacted>.<br></br>
+                        Access is restricted to personnel with Clearance Level 4 or higher. Any unauthorized attempts to access the following communication channels will result in the use of <Redacted>class C Targeted Retrograde amnestic.</Redacted>
                     </p>
                     <p>
-                        <strong>Description:</strong> SCP-7902 appears to be a collection of anomalous <Redacted>hyperlinks</Redacted> capable of transmitting memetic hazards through standard TCP/IP protocols. Subjects viewing these networks report an uncontrollable urge to <Redacted>follow and like</Redacted> the content.
+                        <strong>Description:</strong> SCP-<Redacted>2030-J</Redacted> seems to be a conscious entity with the ability to create and distort reality in its surroundings.<br></br>
+                        The creations/modifications seem to follow a logical pattern seeking to communicate with as many people as possible; potential memetic effects are still being researched.
                     </p>
                 </div>
 
@@ -88,8 +90,8 @@ const SCPChannel: React.FC = () => {
 
                 {/* Footer */}
                 <div className="mt-8 pt-4 border-t border-black text-center text-xs opacity-60">
-                    <p>DO NOT DISCUSS OUTSIDE OF SECURE CHANNELS</p>
-                    <p className="mt-1 font-mono tracking-widest"><Redacted>CONFIDENTIAL</Redacted></p>
+                    <p>WE FIGHT IN THE LIGHT SO YOU CAN DIE IN THE DARK</p>
+                    <p className="mt-1 font-mono tracking-widest"><Redacted>DISGUSTING</Redacted></p>
                 </div>
 
             </div>

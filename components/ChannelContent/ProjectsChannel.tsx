@@ -22,7 +22,7 @@ const ProjectsChannel: React.FC = () => {
         <div className="flex justify-between items-end border-b-2 border-fuchsia-500 pb-2">
             <div>
                 <h1 className="text-4xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600 drop-shadow-[0_0_10px_rgba(232,121,249,0.5)]">
-                    NEXT<span className="text-white">GEN</span> SHOWCASE
+                    NETWORK <span className="text-white">NEWS</span> 54
                 </h1>
                 <p className="text-fuchsia-300 text-xs font-mono tracking-widest mt-1">EPISODE 402: INDIE BREAKTHROUGHS</p>
             </div>
@@ -84,7 +84,7 @@ const ProjectsChannel: React.FC = () => {
       
       {/* Footer / Ad area */}
       <div className="text-center pb-8 pt-4 opacity-50">
-        <p className="text-[10px] font-mono text-fuchsia-300/50">SPONSORED BY CYBERDYNE SYSTEMS</p>
+        <p className="text-[10px] font-mono text-fuchsia-300/50">SPONSORED BY ARASAKA SYSTEMS</p>
       </div>
     </div>
   );

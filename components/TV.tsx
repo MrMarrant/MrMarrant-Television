@@ -46,13 +46,6 @@ const TV: React.FC<TVProps> = ({ state }) => {
       case ChannelType.PROJECTS: return <ProjectsChannel />;
       case ChannelType.SCP: return <SCPChannel />;
       case ChannelType.ART: return <ArtChannel />;
-      case ChannelType.IMAGE:
-        return (
-          <div className="w-full h-full relative">
-            <img src={`https://picsum.photos/800/600?random=${Date.now()}`} alt="Zen" className="w-full h-full object-cover" />
-            <div className="absolute bottom-10 left-10 text-white font-thin text-6xl drop-shadow-lg font-serif">ZEN MODE</div>
-          </div>
-        );
       default: return <StaticChannel />;
     }
   };

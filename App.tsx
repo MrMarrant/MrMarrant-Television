@@ -100,8 +100,7 @@ export default function App() {
 
         {/* Remote Overlay */}
         <div 
-            className={`absolute right-4 md:right-10 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-50 transition-all duration-500 ease-in-out transform ${
-                showRemote 
+                className={`absolute right-4 md:right-10 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-50 transition-all duration-500 ease-in-out transform ${showRemote
                 ? 'translate-x-0 opacity-100' 
                 : 'translate-x-[150%] opacity-0'
             }`}
