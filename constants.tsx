@@ -9,6 +9,15 @@ export const CHANNELS: Channel[] = [
   { number: 5, name: "ARTS", type: ChannelType.ART, description: "Media Gallery" },
 ];
 
+export const MUSICS: string[] = [
+  "../sounds/background_music.ogg",
+  "../sounds/background_music.ogg",
+  "../sounds/run_a1.ogg",
+  "../sounds/run_a2.ogg",
+  "../sounds/run_a3.ogg",
+  "../sounds/run_a4.ogg"
+]
+
 export const Redacted: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
     <span className="bg-black text-black hover:bg-transparent hover:text-black transition-colors duration-300 px-1 cursor-help select-none">
         {children || "REDACTED"}

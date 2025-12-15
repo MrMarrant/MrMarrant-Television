@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { ChannelType, TVState } from '../types';
-import { CHANNELS, MAX_VOLUME } from '../constants';
+import { MUSICS, CHANNELS, MAX_VOLUME } from '../constants';
 import StaticChannel from './ChannelContent/StaticChannel';
 import GuideChannel from './ChannelContent/GuideChannel';
 import ArtChannel from './ChannelContent/ArtChannel';
 import ProfileChannel from './ChannelContent/ProfileChannel';
 import ProjectsChannel from './ChannelContent/ProjectsChannel';
 import SCPChannel from './ChannelContent/SCPChannel';
+import { AudioPlayer } from '../lib/audioPlayer';
 
 interface TVProps {
   state: TVState;
@@ -23,8 +24,10 @@ const TV: React.FC<TVProps> = ({ state }) => {
     setIsSwitching(true);
     const timeout = setTimeout(() => {
       setDisplayChannel(state.currentChannel);
+      AudioPlayer.stop();
       setTimeout(() => {
         setIsSwitching(false);
+        AudioPlayer.play(MUSICS[state.currentChannel]);
       }, 300); // Duration of static after switch
     }, 200); // Lag before switch
 
