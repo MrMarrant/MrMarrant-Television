@@ -1,15 +1,10 @@
 import React from 'react';
 import { getData } from '../../lib/useData';
 import { SocialNetwork } from '@/types';
-
-const Redacted: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
-    <span className="bg-black text-black hover:bg-transparent hover:text-black transition-colors duration-300 px-1 cursor-help select-none">
-        {children || "REDACTED"}
-    </span>
-);
+import { Redacted } from '../../constants';
 
 const SCPChannel: React.FC = () => {
-    const socials: SocialNetwork[] = getData("social");
+    const socials: SocialNetwork[] = getData("socials");
 
     return (
         <div className="w-full h-full bg-[#f4f1ea] text-neutral-900 overflow-y-auto font-mono relative">
