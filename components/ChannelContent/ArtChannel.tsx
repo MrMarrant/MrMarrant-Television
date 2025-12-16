@@ -7,14 +7,7 @@ const ArtChannel: React.FC = () => {
   const art: ArtImage[] = getData("art");
 
   return (
-    <div className="w-full h-full bg-neutral-900 overflow-y-auto relative art-scrollbar">
-      {/* Custom scrollbar hiding for clean TV look */}
-      <style>{`
-        .art-scrollbar::-webkit-scrollbar {
-          width: 0px;
-          background: transparent;
-        }
-      `}</style>
+    <div className="w-full h-full bg-neutral-900 overflow-y-auto relative no-scrollbar">
 
       {/* Header */}
       <div className="sticky top-0 z-10 bg-black/90 border-b border-white/10 p-4 flex justify-between items-center shadow-lg">
@@ -71,13 +64,6 @@ const ArtChannel: React.FC = () => {
           </button>
         </div>
       )}
-
-      <style>{`
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-      `}</style>
     </div>
   );
 };

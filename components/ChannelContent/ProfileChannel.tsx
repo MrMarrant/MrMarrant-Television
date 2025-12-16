@@ -3,17 +3,8 @@ import { Redacted } from '../../constants';
 
 const ProfileChannel: React.FC = () => {
     return (
-        <div className="w-full h-full bg-yellow-500 text-neutral-900 font-sans overflow-y-auto relative scroll-smooth">
-            {/* Hide Scrollbar but allow scrolling */}
-            <style>{`
-                ::-webkit-scrollbar {
-                    width: 0px;
-                    background: transparent;
-                }
-            `}
-            </style>
-
-            {/* Broadcast Header Overlay */}
+        <div className="w-full h-full bg-yellow-500 text-neutral-900 font-sans overflow-y-auto relative no-scrollbar">
+            {/* Header Overlay */}
             <div className="sticky top-0 z-20 bg-yellow-100 border-b-2 border-red-600 px-6 py-3 flex justify-between items-center shadow-sm">
                 <div className="flex items-center gap-2">
                     <span className="bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider">Profile</span>

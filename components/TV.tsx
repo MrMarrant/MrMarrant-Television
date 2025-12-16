@@ -24,7 +24,7 @@ const TV: React.FC<TVProps> = ({ state }) => {
     setIsSwitching(true);
     const timeout = setTimeout(() => {
       setDisplayChannel(state.currentChannel);
-      AudioPlayer.stop();
+      AudioPlayer.play("../sounds/switch_channel.mp3");
       setTimeout(() => {
         setIsSwitching(false);
         AudioPlayer.play(MUSICS[state.currentChannel]);

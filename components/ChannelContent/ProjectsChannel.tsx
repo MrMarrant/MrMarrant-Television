@@ -7,16 +7,6 @@ const ProjectsChannel: React.FC = () => {
 
   return (
     <div className="w-full h-full bg-[#11001c] text-white overflow-y-auto relative font-sans scroll-smooth no-scrollbar">
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-
       {/* Show Header */}
       <div className="sticky top-0 z-20 bg-gradient-to-b from-[#11001c] to-[#11001c]/0 pt-6 pb-8 px-6">
         <div className="flex justify-between items-end border-b-2 border-fuchsia-500 pb-2">
@@ -40,7 +30,7 @@ const ProjectsChannel: React.FC = () => {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative block bg-[#2a0a38] rounded-xl overflow-hidden shadow-lg border border-fuchsia-900/50 hover:border-fuchsia-400 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1"
+            className="group relative block bg-[#2a0a38] rounded-xl overflow-hidden shadow-lg border border-fuchsia-900/50 hover:border-fuchsia-400 transition-all duration-300 transform"
           >
             {/* Project Image */}
             <div className="relative h-40 overflow-hidden">

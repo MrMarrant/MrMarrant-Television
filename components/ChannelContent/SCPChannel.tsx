@@ -7,7 +7,7 @@ const SCPChannel: React.FC = () => {
     const socials: SocialNetwork[] = getData("socials");
 
     return (
-        <div className="w-full h-full bg-[#f4f1ea] text-neutral-900 overflow-y-auto font-mono relative">
+        <div className="w-full h-full bg-[#f4f1ea] text-neutral-900 overflow-y-auto font-mono relative no-scrollbar">
             {/* Background Texture */}
             <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/aged-paper.png")' }}></div>
 

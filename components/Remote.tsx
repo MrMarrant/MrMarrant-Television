@@ -20,7 +20,7 @@ const Remote: React.FC<RemoteProps> = ({
 }) => {
   return (
     <div className="w-64 bg-neutral-800 rounded-[2rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_2px_2px_rgba(255,255,255,0.1)] border-b-8 border-r-8 border-neutral-950 flex flex-col items-center gap-6 select-none relative group transform transition-transform hover:-translate-y-1">
-      {/* Texture noise overlay for plastic feel */}
+      {/* Texture noise overlay */}
       <div className="absolute inset-0 rounded-[2rem] opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none"></div>
 
       {/* Top Section: Power */}
@@ -47,7 +47,7 @@ const Remote: React.FC<RemoteProps> = ({
             <span className="text-[0.5rem] uppercase tracking-tighter opacity-70">{ch.name.slice(0,4)}</span>
           </button>
         ))}
-        {/* Fillers for 3x3 grid if needed, or just numpad style */}
+        {/* Fillers for 3x3 grid */}
         {[6,7,8,9].map(n => (
             !CHANNELS.find(c => c.number === n) && (
                 <button key={n} disabled className="w-full aspect-square rounded-lg bg-neutral-800 text-neutral-600 font-bold shadow-inner border border-neutral-700/30 flex items-center justify-center cursor-not-allowed p-4">

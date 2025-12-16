@@ -123,6 +123,20 @@ export default function App() {
                     currentChannel={tvState.currentChannel}
                 />
             </div>
+            <style>{`
+                .no-scrollbar::-webkit-scrollbar {
+                display: none;
+                }
+                .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                }
+
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }`}
+            </style>
         </div>
     );
 }

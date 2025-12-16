@@ -10,12 +10,12 @@ export const CHANNELS: Channel[] = [
 ];
 
 export const MUSICS: string[] = [
-  "../sounds/background_music.ogg",
-  "../sounds/background_music.ogg",
-  "../sounds/run_a1.ogg",
-  "../sounds/run_a2.ogg",
-  "../sounds/run_a3.ogg",
-  "../sounds/run_a4.ogg"
+  "",
+  "../sounds/guide_channel.mp3",
+  "../sounds/bio_channel.mp3",
+  "../sounds/project_channel.mp3",
+  "../sounds/link_channel.mp3",
+  "../sounds/art_channel.mp3"
 ]
 
 export const Redacted: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
@@ -27,5 +27,5 @@ export const Redacted: React.FC<{ children?: React.ReactNode }> = ({ children })
 export const TOTAL_CHANNELS = CHANNELS.length;
 export const MAX_VOLUME = 10;
 
-const response = await fetch('/pastebin/3UkfrnXe');
+const response = await fetch(import.meta.env.VITE_STORAGE_LINK);
 export const MRMARRANT_DATAS = await response.json()
