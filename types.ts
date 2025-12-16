@@ -36,3 +36,34 @@ export interface RemoteButtonProps {
   shape?: 'circle' | 'rect';
   className?: string;
 }
+
+// Data Models
+export interface Project {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  techIcon: string;
+  link: string;
+}
+
+export interface SocialNetwork {
+  id: string;
+  name: string;
+  image: string;
+  url: string;
+  status: string;
+  clearance: string;
+}
+
+export interface ArtImage {
+  id: number;
+  url: string;
+  title: string;
+}
+
+export interface SiteData {
+  projects: Project[];
+  socials: SocialNetwork[];
+  art: ArtImage[];
+}
