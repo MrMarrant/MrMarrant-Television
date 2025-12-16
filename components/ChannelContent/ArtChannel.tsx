@@ -1,10 +1,16 @@
+"use client";
+
 import React, { useState } from 'react';
-import { getData } from '../../lib/useData';
-import { ArtImage } from '@/types';
+import { useSiteDatas } from '../../lib/useSiteData';
+import { ArtImage } from '../../types';
 
 const ArtChannel: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const art: ArtImage[] = getData("art");
+
+    const { siteData, loading } = useSiteDatas();
+    const art = siteData?.art ?? [];
+  
+    if (loading) return <p className='p-10 text-white justify-center'>Loading...</p>;
 
   return (
     <div className="w-full h-full bg-neutral-900 overflow-y-auto relative no-scrollbar">

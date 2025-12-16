@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import { ChannelType, TVState } from '../types';
 import { MUSICS, CHANNELS, MAX_VOLUME } from '../constants';

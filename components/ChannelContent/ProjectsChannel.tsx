@@ -1,9 +1,13 @@
-import React from 'react';
-import { getData } from '../../lib/useData';
-import { Project } from '@/types';
+"use client";
+
+import React, { useEffect, useState }  from 'react';
+import { useSiteDatas } from '../../lib/useSiteData';
 
 const ProjectsChannel: React.FC = () => {
-  const projects: Project[] = getData("projects");
+  const { siteData, loading } = useSiteDatas();
+  const projects = siteData?.projects ?? [];
+
+    if (loading) return <p className='p-10 text-white justify-center'>Loading...</p>;
 
   return (
     <div className="w-full h-full bg-[#11001c] text-white overflow-y-auto relative font-sans scroll-smooth no-scrollbar">
@@ -26,7 +30,7 @@ const ProjectsChannel: React.FC = () => {
       <div className="px-6 pb-20 flex flex-col gap-8">
         {projects.map((project, index) => (
           <a 
-            key={project.id} 
+            key={project.id}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"

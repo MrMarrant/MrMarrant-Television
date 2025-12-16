@@ -67,3 +67,7 @@ export interface SiteData {
   socials: SocialNetwork[];
   art: ArtImage[];
 }
+
+export type DataType = {
+  [key: string]: any; // Permet d'accéder à n'importe quelle clé
+};

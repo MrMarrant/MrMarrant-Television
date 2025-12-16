@@ -1,10 +1,14 @@
+"use client";
+
 import React from 'react';
-import { getData } from '../../lib/useData';
-import { SocialNetwork } from '@/types';
+import { useSiteDatas } from '../../lib/useSiteData';
 import { Redacted } from '../../constants';
 
 const SCPChannel: React.FC = () => {
-    const socials: SocialNetwork[] = getData("socials");
+    const { siteData, loading } = useSiteDatas();
+    const socials = siteData?.socials ?? [];
+
+    if (loading) return <p className='p-10 text-white justify-center'>Loading...</p>;
 
     return (
         <div className="w-full h-full bg-[#f4f1ea] text-neutral-900 overflow-y-auto font-mono relative no-scrollbar">
