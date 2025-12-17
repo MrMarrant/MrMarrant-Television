@@ -12,7 +12,7 @@ const ProjectsChannel: React.FC = () => {
   return (
     <div className="w-full h-full bg-[#11001c] text-white overflow-y-auto relative font-sans scroll-smooth no-scrollbar">
       {/* Show Header */}
-      <div className="sticky top-0 z-20 bg-gradient-to-b from-[#11001c] to-[#11001c]/0 pt-6 pb-8 px-6">
+      <div className="top-0 z-20 bg-gradient-to-b from-[#11001c] to-[#11001c]/0 pt-6 pb-8 px-6">
         <div className="flex justify-between items-end border-b-2 border-fuchsia-500 pb-2">
             <div>
                 <h1 className="text-4xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-purple-600 drop-shadow-[0_0_10px_rgba(232,121,249,0.5)]">

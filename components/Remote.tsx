@@ -21,13 +21,13 @@ const Remote: React.FC<RemoteProps> = ({
   currentChannel 
 }) => {
   return (
-    <div className="w-64 bg-neutral-800 rounded-[2rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_2px_2px_rgba(255,255,255,0.1)] border-b-8 border-r-8 border-neutral-950 flex flex-col items-center gap-6 select-none relative group transform transition-transform hover:-translate-y-1">
+    <div className="w-64 mb-20 lg:mb-4 bg-neutral-800 rounded-[2rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_2px_2px_rgba(255,255,255,0.1)] border-b-8 border-r-8 border-neutral-950 flex flex-col items-center gap-6 select-none relative group transform transition-transform hover:-translate-y-1">
       {/* Texture noise overlay */}
       <div className="absolute inset-0 rounded-[2rem] opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none"></div>
 
       {/* Top Section: Power */}
       <div className="w-full flex justify-between items-center px-2">
-        <span className="text-neutral-500 font-bold tracking-widest text-xs">SONY</span>
+        <span className="text-neutral-500 font-bold tracking-widest text-xs">LAUGH</span>
         <button 
           onClick={onPower}
           className="w-12 h-12 bg-red-600 rounded-full shadow-[0_4px_0_#7f1d1d,0_5px_10px_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition-all flex items-center justify-center text-white remote-btn"

@@ -97,7 +97,7 @@ export default function App() {
             {/* Remote Toggle Button */}
             <button
                 onClick={() => setShowRemote(!showRemote)}
-                className="absolute top-4 right-4 z-50 bg-neutral-800/80 text-white p-2 rounded-full border border-neutral-600 hover:bg-neutral-700 transition-colors backdrop-blur-sm group"
+                className="absolute top-4 right-4 z-[100] bg-neutral-800/80 text-white p-2 rounded-full border border-neutral-600 hover:bg-neutral-700 transition-colors backdrop-blur-sm group"
                 title={showRemote ? "Hide Remote" : "Show Remote"}
             >
                 {showRemote ? (

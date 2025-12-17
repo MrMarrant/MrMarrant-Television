@@ -65,19 +65,19 @@ const SCPChannel: React.FC = () => {
                                 className="flex items-center gap-4 p-3 border border-neutral-300 hover:bg-neutral-100 transition-colors group relative overflow-hidden"
                             >
                                 {/* Icon Box */}
-                                <div className="w-12 h-12 flex items-center justify-center bg-neutral-100 border border-neutral-300 rounded-sm group-hover:border-black transition-colors">
+                                <div className="flex items-center justify-center">
                                     <img src={net.image} alt={net.name} className="w-8 h-8 filter grayscale group-hover:filter-none transition-all" />
                                 </div>
 
                                 {/* Info */}
                                 <div className="flex-1">
                                     <div className="flex justify-between items-center mb-1">
-                                        <span className="font-bold text-lg uppercase tracking-tight group-hover:text-red-700 transition-colors">{net.name}</span>
-                                        <span className={`text-[10px] px-1 border ${net.status === 'ACTIVE' ? 'border-green-600 text-green-800 bg-green-100' : 'border-red-600 text-red-800 bg-red-100'}`}>
+                                        <span className="font-bold text-sm lg:text-lg uppercase tracking-tight group-hover:text-red-700 transition-colors">{net.name}</span>
+                                        <span className={`hidden sm:flex text-[10px] px-1 border ${net.status === 'ACTIVE' ? 'border-green-600 text-green-800 bg-green-100' : 'border-red-600 text-red-800 bg-red-100'}`}>
                                             {net.status}
                                         </span>
                                     </div>
-                                    <div className="text-xs text-neutral-500 font-mono flex gap-4">
+                                    <div className="hidden sm:flex text-xs text-neutral-500 font-mono gap-4">
                                         <span>ID: <Redacted>{net.id}</Redacted></span>
                                         <span>CLR: {net.clearance}</span>
                                     </div>
