@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server';
 
-const PASTEBIN_URL = 'https://pastebin.com/raw/3UkfrnXe';
+const PASTEBIN_URL = process.env.STORAGE_LINK;
 
 export async function GET() {
     try {
+        if (!PASTEBIN_URL) {
+            return NextResponse.json(
+                { error: 'STORAGE_LINK environment variable is not set' },
+                { status: 500 }
+            );
+        }
         const response = await fetch(PASTEBIN_URL, {
             cache: 'no-store', // toujours à jour
         });

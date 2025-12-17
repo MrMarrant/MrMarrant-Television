@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { useSiteDatas } from '../../lib/useSiteData';
-import { Redacted } from '../../constants';
+import { Redacted, Loading } from '../../constants';
 
 const SCPChannel: React.FC = () => {
     const { siteData, loading } = useSiteDatas();
     const socials = siteData?.socials ?? [];
 
-    if (loading) return <p className='p-10 text-white justify-center'>Loading...</p>;
+    if (loading) return <Loading></Loading>;
 
     return (
         <div className="w-full h-full bg-[#f4f1ea] text-neutral-900 overflow-y-auto font-mono relative no-scrollbar">

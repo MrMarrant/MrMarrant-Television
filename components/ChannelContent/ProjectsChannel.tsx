@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useEffect, useState }  from 'react';
+import React from 'react';
 import { useSiteDatas } from '../../lib/useSiteData';
+import { Loading } from '../../constants';
 
 const ProjectsChannel: React.FC = () => {
   const { siteData, loading } = useSiteDatas();
   const projects = siteData?.projects ?? [];
 
-    if (loading) return <p className='p-10 text-white justify-center'>Loading...</p>;
+    if (loading) return <Loading></Loading>;
 
   return (
     <div className="w-full h-full bg-[#11001c] text-white overflow-y-auto relative font-sans scroll-smooth no-scrollbar">

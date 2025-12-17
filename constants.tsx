@@ -24,5 +24,13 @@ export const Redacted: React.FC<{ children?: React.ReactNode }> = ({ children })
     </span>
 );
 
+export const Loading: React.FC = () => (
+    <div className="flex h-[80vh] items-center justify-center bg-black">
+      <span className="text-white text-3xl tracking-[0.3em] animate-pulse">
+        LOADING
+      </span>
+    </div>
+);
+
 export const TOTAL_CHANNELS = CHANNELS.length;
 export const MAX_VOLUME = 10;

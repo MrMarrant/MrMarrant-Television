@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useSiteDatas } from '../../lib/useSiteData';
-import { ArtImage } from '../../types';
+import { Loading } from '../../constants';
 
 const ArtChannel: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -10,7 +10,7 @@ const ArtChannel: React.FC = () => {
     const { siteData, loading } = useSiteDatas();
     const art = siteData?.art ?? [];
   
-    if (loading) return <p className='p-10 text-white justify-center'>Loading...</p>;
+    if (loading) return <Loading></Loading>;
 
   return (
     <div className="w-full h-full bg-neutral-900 overflow-y-auto relative no-scrollbar">

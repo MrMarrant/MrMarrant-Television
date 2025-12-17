@@ -84,7 +84,7 @@ export default function TVApp() {
     };
 
     return (
-        <div className="h-screen w-screen bg-[#111] overflow-hidden relative flex items-center justify-center">
+        <div className={`h-screen w-screen ${tvState.isOn && 'animated-bg'} overflow-hidden relative flex items-center justify-center`}>
             {/* Environment Ambience */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(30,30,40,1)_0%,rgba(0,0,0,1)_100%)] pointer-events-none -z-10"></div>
 

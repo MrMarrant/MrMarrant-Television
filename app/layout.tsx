@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'MrMarrant TV',
+  title: 'MrMarrant',
   description: 'A fully interactive virtual television experience.',
 };
 
@@ -80,6 +80,32 @@ export default function RootLayout({
             transform: scale(0.95);
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
           }
+
+          @layer utilities {
+          .animated-bg {
+            background: linear-gradient(
+              270deg,
+              #1a1b3dff,
+              #1a0941ff,
+              #3a0e24ff,
+              #5f3c00ff
+            );
+            background-size: 800% 800%;
+            animation: gradientTransition 40s ease infinite;
+          }
+
+          @keyframes gradientTransition {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        }
         `}} />
       </head>
       <body>{children}</body>

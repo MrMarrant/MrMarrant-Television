@@ -1,12 +1,7 @@
-import React from 'react';
-
 export enum ChannelType {
   STATIC = 'STATIC',
   GUIDE = 'GUIDE',
   IMAGE = 'IMAGE',
-  NEWS_AI = 'NEWS_AI',
-  STORY_AI = 'STORY_AI',
-  DATA_VIZ = 'DATA_VIZ',
   ART = 'ART',
   PROFILE = 'PROFILE',
   PROJECTS = 'PROJECTS',
@@ -25,19 +20,9 @@ export interface TVState {
   currentChannel: number;
   volume: number;
   isMuted: boolean;
-  showOSD: boolean; // On Screen Display
+  showOSD: boolean;
 }
 
-export interface RemoteButtonProps {
-  label?: string;
-  icon?: React.ReactNode;
-  onClick: () => void;
-  color?: 'red' | 'gray' | 'blue' | 'black';
-  shape?: 'circle' | 'rect';
-  className?: string;
-}
-
-// Data Models
 export interface Project {
   id: number;
   name: string;
@@ -67,7 +52,3 @@ export interface SiteData {
   socials: SocialNetwork[];
   art: ArtImage[];
 }
-
-export type DataType = {
-  [key: string]: any; // Permet d'accéder à n'importe quelle clé
-};
