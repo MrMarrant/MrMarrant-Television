@@ -57,14 +57,14 @@ const ArtChannel: React.FC = () => {
             <img
               src={selectedImage}
               alt="Zoomed Art"
-              className="max-w-full max-h-full object-contain shadow-[0_0_50px_rgba(255,255,255,0.1)] rounded-sm pointer-events-auto"
+              className="max-w-full max-h-full object-contain shadow-[0_0_50px_rgba(255,255,255,0.1)] rounded-sm pointer-events-auto  border-2 border-solid"
             />
           </div>
 
           {/* Close Button */}
           <button
             onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 backdrop-blur-md transition-all hover:rotate-90 z-50 border border-white/10"
+            className="absolute top-4 right-4 bg-white/10 hover:bg-red-400 text-white rounded-full p-2 backdrop-blur-md transition-all hover:rotate-90 z-50 border border-white/10"
           >
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
