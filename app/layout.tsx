@@ -76,6 +76,17 @@ export default function RootLayout({
             font-family: 'Share Tech Mono', monospace;
           }
 
+          .font-pixel {
+            font-family: 'Press Start 2P', cursive;
+          }
+
+          .articles-border {
+            border: 6px solid white;
+            background: black;
+            padding: 1rem;
+            position: relative;
+          }
+
           .remote-btn:active {
             transform: scale(0.95);
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);

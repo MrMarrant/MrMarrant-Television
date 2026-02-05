@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { Power, VolumeOff } from 'lucide-react';
 import { CHANNELS } from '../constants';
 
 interface RemoteProps {
@@ -21,7 +22,7 @@ const Remote: React.FC<RemoteProps> = ({
   currentChannel 
 }) => {
   return (
-    <div className="w-64 mb-20 lg:mb-4 bg-neutral-800 rounded-[2rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_2px_2px_rgba(255,255,255,0.1)] border-b-8 border-r-8 border-neutral-950 flex flex-col items-center gap-6 select-none relative group transform transition-transform hover:-translate-y-1">
+    <div className="w-64 mb-20 lg:mb-4 bg-neutral-800 rounded-[2rem] p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_2px_2px_rgba(255,255,255,0.1)] border-b-8 border-r-8 border-neutral-950 flex flex-col items-center gap-6 select-none relative group">
       {/* Texture noise overlay */}
       <div className="absolute inset-0 rounded-[2rem] opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none"></div>
 
@@ -33,7 +34,7 @@ const Remote: React.FC<RemoteProps> = ({
           className="w-12 h-12 bg-red-600 rounded-full shadow-[0_4px_0_#7f1d1d,0_5px_10px_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition-all flex items-center justify-center text-white remote-btn"
           aria-label="Power"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          <Power size={25}/>
         </button>
       </div>
 
@@ -80,9 +81,9 @@ const Remote: React.FC<RemoteProps> = ({
       {/* Mute Button */}
       <button 
           onClick={onMute}
-          className="w-12 h-12 rounded-full bg-neutral-700 text-neutral-400 shadow-[0_3px_0_rgba(0,0,0,0.4)] active:translate-y-[3px] active:shadow-none transition-all text-xs font-bold uppercase"
+          className="w-12 h-12 rounded-full bg-neutral-700 shadow-[0_3px_0_rgba(0,0,0,0.4)] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center"
         >
-          Mute
+        <VolumeOff color="white" size={20}/>
       </button>
 
     </div>
