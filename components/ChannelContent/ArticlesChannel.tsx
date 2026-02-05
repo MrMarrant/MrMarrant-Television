@@ -29,7 +29,7 @@ const ArticlesChannel: React.FC = () => {
                         <button
                             key={article.id}
                             onClick={() => setSelectedArticle(article)}
-                            className="group text-left flex items-start gap-2 transition-all hover:translate-x-1 focus:outline-none"
+                            className="group text-left flex items-start gap-2 transition-all hover:translate-x-1"
                         >
                             <div className="mt-1 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity">
                                 <SoulIcon />
