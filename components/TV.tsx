@@ -15,7 +15,7 @@ interface TVProps {
   state: TVState;
 }
 
-const TV: React.FC<TVProps> = ({ state }) => {
+const Television: React.FC<TVProps> = ({ state }) => {
   const [displayChannel, setDisplayChannel] = useState<number>(state.currentChannel);
   const [isSwitching, setIsSwitching] = useState(false);
 
@@ -95,4 +95,4 @@ const TV: React.FC<TVProps> = ({ state }) => {
   );
 };
 
-export default TV;
+export default Television;

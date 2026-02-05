@@ -16,7 +16,7 @@ export async function GET() {
 
         if (!response.ok) {
             return NextResponse.json(
-                { error: 'Failed to fetch Pastebin data' },
+                { error: 'Failed to fetch data' },
                 { status: 500 }
             );
         }

@@ -1,4 +1,4 @@
-import { Channel, ChannelType, SiteData } from './types';
+import { Channel, ChannelType } from './types';
 import React from 'react';
 
 export const CHANNELS: Channel[] = [

@@ -13,7 +13,7 @@ const SCPChannel: React.FC = () => {
     return (
         <div className="w-full h-full bg-[#f4f1ea] text-neutral-900 overflow-y-auto font-mono relative no-scrollbar">
             {/* Background Texture */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/aged-paper.png")' }}></div>
+            <div className="absolute inset-0 opacity-10 pointer-events-none"></div>
 
             {/* Warning Header */}
             <div className="sticky top-0 z-10 bg-red-700 text-white text-center py-2 font-bold uppercase tracking-[0.2em] border-b-4 border-black text-xs md:text-sm shadow-md">
