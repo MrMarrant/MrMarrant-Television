@@ -9,6 +9,7 @@ import ArtChannel from './ChannelContent/ArtChannel';
 import ProfileChannel from './ChannelContent/ProfileChannel';
 import ProjectsChannel from './ChannelContent/ProjectsChannel';
 import SCPChannel from './ChannelContent/SCPChannel';
+import ArticlesChannel from './ChannelContent/ArticlesChannel';
 import { AudioPlayer } from '../lib/audioPlayer';
 
 interface TVProps {
@@ -51,6 +52,7 @@ const Television: React.FC<TVProps> = ({ state }) => {
       case ChannelType.PROJECTS: return <ProjectsChannel />;
       case ChannelType.SCP: return <SCPChannel />;
       case ChannelType.ART: return <ArtChannel />;
+      case ChannelType.ARTICLES: return <ArticlesChannel />;
       default: return <StaticChannel />;
     }
   };

@@ -6,6 +6,7 @@ export enum ChannelType {
   PROFILE = 'PROFILE',
   PROJECTS = 'PROJECTS',
   SCP = 'SCP',
+  ARTICLES = 'ARTICLES',
 }
 
 export interface Channel {
@@ -47,8 +48,17 @@ export interface ArtImage {
   title: string;
 }
 
+export interface Article {
+  id: number;
+  title: string;
+  tag: string;
+  date: string;
+  content: string;
+}
+
 export interface SiteData {
   projects: Project[];
   socials: SocialNetwork[];
   art: ArtImage[];
+  articles: Article[];
 }
