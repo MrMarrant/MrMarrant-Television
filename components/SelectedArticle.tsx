@@ -10,7 +10,7 @@ interface SelectedArticleProps {
 
 const SelectedArticle: React.FC<SelectedArticleProps> = ({ article, onBack }) => {
     return (
-        <div className="w-full h-full bg-black text-white font-pixel overflow-y-auto p-6 flex flex-col items-center no-scrollbar">
+        <div className="w-full h-full bg-black text-white font-pixel-sans overflow-y-auto p-6 flex flex-col items-center no-scrollbar">
             <div className="w-full max-w-2xl articles-border mb-8 animate-[fadeIn_0.3s_ease-out]">
                 <div className="flex justify-between items-start mb-6 border-b-4 border-white pb-4">
                     <div>
