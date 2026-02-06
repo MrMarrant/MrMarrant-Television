@@ -18,7 +18,7 @@ const ArticlesChannel: React.FC = () => {
         return <SelectedArticle article={selectedArticle} onBack={() => setSelectedArticle(null)} />
     }
     return (
-        <div className="w-full h-full bg-black text-white font-pixel overflow-hidden flex flex-col no-scrollbar">
+        <div className="w-full h-full bg-black text-white font-pixel-sans overflow-hidden flex flex-col no-scrollbar">
             <div className="p-8 pb-4">
                 <p className="text-lg leading-relaxed mb-8">* Choose a destination.</p>
             </div>
@@ -48,21 +48,21 @@ const ArticlesChannel: React.FC = () => {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 h-20 flex items-center px-8 z-10 bg-black ">
-                <div className="flex gap-8 text-xl text-orange-500 w-full justify-around uppercase">
-                    <div className="flex items-center gap-2 border-2 border-orange-500 px-2 scale-150 p-2 hover:border-yellow-500 hover:text-yellow-500">
+            <div className="absolute bottom-0 left-0 right-0 h-20 flex items-center z-10 bg-black md:px-8">
+                <div className="flex text-orange-500 w-full justify-around uppercase text-[6px] md:text-xl md:gap-8">
+                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 hover:border-yellow-500 hover:text-yellow-500 sm:scale-75 md:scale-100 lg:scale-150">
                         <Sword />
                         <span>FIGHT</span>
                     </div>
-                    <div className="flex items-center gap-2 border-2 border-yellow-500 text-yellow-500 px-2 scale-150 p-2">
+                    <div className="flex items-center border-2 border-yellow-500 text-yellow-500 px-1 p-1 sm:scale-75 md:scale-100 lg:scale-150">
                         <Nfc color="#00000000" />
                         <span>ACT</span>
                     </div>
-                    <div className="flex items-center gap-2 border-2 border-orange-500 px-2 scale-150 p-2">
+                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 sm:scale-75 md:scale-100 lg:scale-150">
                         <FlaskConical />
                         <span>ITEM</span>
                     </div>
-                    <div className="flex items-center gap-2 border-2 border-orange-500 px-2 scale-150 p-2">
+                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 sm:scale-75 md:scale-100 lg:scale-150">
                         <X />
                         <span>MERCY</span>
                     </div>
