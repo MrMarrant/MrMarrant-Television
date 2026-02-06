@@ -49,20 +49,20 @@ const ArticlesChannel: React.FC = () => {
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 h-20 flex items-center z-10 bg-black md:px-8">
-                <div className="flex text-orange-500 w-full justify-around uppercase text-xs md:text-xl md:gap-8">
-                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 hover:border-yellow-500 hover:text-yellow-500 scale-10 md:scale-150">
+                <div className="flex text-orange-500 w-full justify-around uppercase text-[6px] md:text-xl md:gap-8">
+                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 hover:border-yellow-500 hover:text-yellow-500 sm:scale-75 md:scale-100 lg:scale-150">
                         <Sword />
                         <span>FIGHT</span>
                     </div>
-                    <div className="flex items-center border-2 border-yellow-500 text-yellow-500 px-1 p-1 scale-10 md:scale-150">
+                    <div className="flex items-center border-2 border-yellow-500 text-yellow-500 px-1 p-1 sm:scale-75 md:scale-100 lg:scale-150">
                         <Nfc color="#00000000" />
                         <span>ACT</span>
                     </div>
-                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 scale-10 md:scale-150">
+                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 sm:scale-75 md:scale-100 lg:scale-150">
                         <FlaskConical />
                         <span>ITEM</span>
                     </div>
-                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 scale-10 md:scale-150">
+                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 sm:scale-75 md:scale-100 lg:scale-150">
                         <X />
                         <span>MERCY</span>
                     </div>
