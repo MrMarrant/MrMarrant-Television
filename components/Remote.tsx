@@ -31,7 +31,7 @@ const Remote: React.FC<RemoteProps> = ({
         <span className="text-neutral-500 font-bold tracking-widest text-xs">LAUGH</span>
         <button 
           onClick={onPower}
-          className="w-12 h-12 bg-red-600 rounded-full shadow-[0_4px_0_#7f1d1d,0_5px_10px_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition-all flex items-center justify-center text-white remote-btn"
+          className="w-12 h-7 lg:h-12 bg-red-600 rounded-full shadow-[0_4px_0_#7f1d1d,0_5px_10px_rgba(0,0,0,0.3)] active:shadow-none active:translate-y-1 transition-all flex items-center justify-center text-white remote-btn"
           aria-label="Power"
         >
           <Power size={25}/>
@@ -39,12 +39,12 @@ const Remote: React.FC<RemoteProps> = ({
       </div>
 
       {/* Channel Grid */}
-      <div className="grid grid-cols-3 gap-3 w-full p-4 bg-neutral-900/50 rounded-xl border border-neutral-700/50">
+      <div className="grid grid-cols-3 gap-1 lg:gap-4 w-full p-4 bg-neutral-900/50 rounded-xl border border-neutral-700/50">
         {CHANNELS.map((ch) => (
           <button
             key={ch.number}
             onClick={() => onChannelChange(ch.number)}
-            className={`w-full aspect-square rounded-lg font-bold text-lg shadow-[0_3px_0_rgba(0,0,0,0.4)] active:shadow-none active:translate-y-[3px] transition-all flex flex-col items-center justify-center gap-1 border border-neutral-600 ${currentChannel === ch.number ? 'bg-neutral-600 text-yellow-400' : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'}`}
+            className={`w-full aspect-square rounded-lg font-bold text-lg shadow-[0_3px_0_rgba(0,0,0,0.4)] active:shadow-none active:translate-y-[3px] transition-all flex flex-col items-center justify-center gap-0 lg:gap-1 border border-neutral-600 ${currentChannel === ch.number ? 'bg-neutral-600 text-yellow-400' : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'}`}
           >
             <span>{ch.number}</span>
             <span className="text-[0.5rem] uppercase tracking-tighter opacity-70">{ch.name.slice(0,4)}</span>
@@ -61,7 +61,7 @@ const Remote: React.FC<RemoteProps> = ({
       </div>
 
       {/* Navigation */}
-      <div className="w-full grid grid-cols-2 gap-x-8 gap-y-4 px-2">
+      <div className="hidden lg:grid w-full grid grid-cols-2 gap-x-8 gap-y-4 px-2">
         <div className="flex flex-col items-center gap-2">
             <span className="text-neutral-500 text-xs font-bold">VOL</span>
             <div className="flex flex-col gap-2 w-full">
@@ -79,13 +79,12 @@ const Remote: React.FC<RemoteProps> = ({
       </div>
 
       {/* Mute Button */}
-      <button 
+      <button
           onClick={onMute}
-          className="w-12 h-12 rounded-full bg-neutral-700 shadow-[0_3px_0_rgba(0,0,0,0.4)] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center"
+          className="w-12 h-7 lg:h-12 rounded-full bg-neutral-700 shadow-[0_3px_0_rgba(0,0,0,0.4)] active:translate-y-[3px] active:shadow-none transition-all flex items-center justify-center"
         >
         <VolumeOff color="white" size={20}/>
       </button>
-
     </div>
   );
 };
