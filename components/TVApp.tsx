@@ -100,7 +100,7 @@ export default function TVApp() {
             {/* Remote Toggle Button */}
             <button
                 onClick={() => setShowRemote(!showRemote)}
-                className="absolute top-4 right-4 z-[100] bg-neutral-800/80 text-white p-2 rounded-full border border-neutral-600 hover:bg-neutral-700 transition-colors backdrop-blur-sm group"
+                className="absolute top-10 lg:top-4 right-4 z-[100] rotate-90 lg:rotate-0 bg-neutral-800/80 text-white p-2 rounded-full border border-neutral-600 hover:bg-neutral-700 transition-colors backdrop-blur-sm group"
                 title={showRemote ? "Hide Remote" : "Show Remote"}
             >
                 {showRemote ? (
@@ -112,7 +112,7 @@ export default function TVApp() {
 
             {/* Remote Overlay */}
             <div
-                className={`absolute right-4 md:right-10 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-50 transition-all duration-500 ease-in-out transform ${showRemote
+                className={`absolute right-[6.5rem] top-[0.5rem] sm:right-[10rem] lg:right-[5rem] lg:top-auto lg:bottom-[10rem] z-50 rotate-90 lg:rotate-0 transition-all duration-500 ease-in-out transform ${showRemote
                         ? 'translate-x-0 opacity-100'
                         : 'translate-x-[150%] opacity-0'
                     }`}
