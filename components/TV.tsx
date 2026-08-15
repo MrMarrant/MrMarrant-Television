@@ -59,8 +59,8 @@ const Television: React.FC<TVProps> = ({ state }) => {
 
   return (
     <div
-      className="relative bg-neutral-900 rounded-3xl p-4 md:p-8 shadow-2xl border-4 border-neutral-800 mx-auto transform transition-transform duration-300
-          w-[min(180vw,95vh*1.333)] min-[500px]:w-[min(150vw,95vh*1.333)] min-[650px]:w-[min(95vw,95vh*1.333)]
+      className="bottom-5 lg:bottom-auto relative bg-neutral-900 rounded-3xl p-4 md:p-8 shadow-2xl border-4 border-neutral-800 mx-auto transform transition-transform duration-300
+          w-[min(180vw,95vh*1.333)] min-[500px]:w-[min(150vw,95vh*1.333)] min-[600px]:w-[min(95vw,95vh*1.333)]
           h-[min(95vh,95vw*1)] lg:h-[min(95vh,95vw*0.75)]
           rotate-90 lg:rotate-0"
                     // h-[min(95vh,95vw*0.75)]"
