@@ -94,7 +94,7 @@ export default function TVApp() {
 
             {/* TV Container - takes available space */}
             <div className="relative z-10 p-4">
-                <Television state={tvState} />
+                <Television state={tvState} onPowerOff={handlePower} />
             </div>
 
             {/* Remote Toggle Button */}

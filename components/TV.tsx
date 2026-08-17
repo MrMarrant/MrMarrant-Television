@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChannelType, TVState } from '../types';
 import { MUSICS, CHANNELS, MAX_VOLUME } from '../constants';
 import StaticChannel from './ChannelContent/StaticChannel';
@@ -14,11 +14,14 @@ import { AudioPlayer } from '../lib/audioPlayer';
 
 interface TVProps {
   state: TVState;
+  onPowerOff: () => void;
 }
 
-const Television: React.FC<TVProps> = ({ state }) => {
+const Television: React.FC<TVProps> = ({ state, onPowerOff }) => {
   const [displayChannel, setDisplayChannel] = useState<number>(state.currentChannel);
   const [isSwitching, setIsSwitching] = useState(false);
+  const [isTurningOff, setIsTurningOff] = useState(false);
+  const wasOn = useRef(state.isOn);
 
   // Handle Channel Switching Effect
   useEffect(() => {
@@ -37,8 +40,19 @@ const Television: React.FC<TVProps> = ({ state }) => {
     return () => clearTimeout(timeout);
   }, [state.currentChannel, state.isOn]);
 
+  // Handle Power Off Effect
+  useEffect(() => {
+    if (wasOn.current && !state.isOn) {
+      setIsTurningOff(true);
+      const timeout = setTimeout(() => setIsTurningOff(false), 500); // Duration of turn-off animation
+      wasOn.current = state.isOn;
+      return () => clearTimeout(timeout);
+    }
+    wasOn.current = state.isOn;
+  }, [state.isOn]);
+
   const renderContent = () => {
-    if (!state.isOn) return <div className="w-full h-full bg-black" />;
+    if (!state.isOn && !isTurningOff) return <div className="w-full h-full bg-black" />;
 
     // While switching, show static
     if (isSwitching) return <StaticChannel />;
@@ -70,7 +84,7 @@ const Television: React.FC<TVProps> = ({ state }) => {
       <div className="relative w-full h-full bg-black rounded-[50px/20px] overflow-hidden shadow-inner crt-screen ring-4 ring-black ring-opacity-50">
 
         {/* Content Layer */}
-        <div className={`w-full h-full transition-all duration-200 ${state.isOn ? 'animate-turn-on' : 'opacity-0'}`}>
+        <div className={`w-full h-full transition-all duration-200 ${state.isOn ? 'animate-turn-on' : isTurningOff ? 'animate-turn-off' : 'opacity-0'}`}>
           {renderContent()}
         </div>
 
