@@ -6,13 +6,31 @@ import SelectedArticle from '../SelectedArticle';
 import { Article } from '../../types';
 import { Loading, SoulIcon } from '../../constants';
 import { Sword, Nfc, X, FlaskConical } from 'lucide-react';
+import { AudioPlayer } from '../../lib/audioPlayer';
+import BattleGame from '../Battle/BattleGame';
 
-const ArticlesChannel: React.FC = () => {
+interface ArticlesChannelProps {
+    onPowerOff: () => void;
+}
+
+const ArticlesChannel: React.FC<ArticlesChannelProps> = ({ onPowerOff }) => {
     const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+    const [inBattle, setInBattle] = useState(false);
     const { siteData, loading } = useSiteDatas();
     const articles = siteData?.articles ?? [];
 
     if (loading) return <Loading></Loading>;
+
+    if (inBattle) {
+        return (
+            <BattleGame
+                onExit={() => {
+                    onPowerOff();
+                    setInBattle(false);
+                }}
+            />
+        );
+    }
 
     if (selectedArticle) {
         return <SelectedArticle article={selectedArticle} onBack={() => setSelectedArticle(null)} />
@@ -50,7 +68,14 @@ const ArticlesChannel: React.FC = () => {
 
             <div className="absolute bottom-0 left-0 right-0 h-20 flex items-center z-10 bg-black md:px-8">
                 <div className="flex text-orange-500 w-full justify-around uppercase text-[6px] md:text-xl md:gap-8">
-                    <div className="flex items-center border-2 border-orange-500 px-1 p-1 hover:border-yellow-500 hover:text-yellow-500 sm:scale-75 md:scale-100 lg:scale-150">
+                    <div
+                        onClick={() => {
+                            AudioPlayer.stop();
+                            AudioPlayer.play("../sounds/run_a2.ogg");
+                            setInBattle(true);
+                        }}
+                        className="flex items-center border-2 border-orange-500 px-1 p-1 hover:border-yellow-500 hover:text-yellow-500 sm:scale-75 md:scale-100 lg:scale-150 cursor-pointer"
+                    >
                         <Sword />
                         <span>FIGHT</span>
                     </div>
