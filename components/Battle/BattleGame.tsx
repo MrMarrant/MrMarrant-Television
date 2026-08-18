@@ -13,7 +13,7 @@ type DialogueContext = 'intro' | 'act' | 'item' | 'mercy';
 type ResultKind = 'win-fight' | 'win-spare' | 'lose' | null;
 
 const DODGE_DURATION_MS = 7000;
-const REQUIRED_ACT_COUNT = 2;
+const REQUIRED_ACT_COUNT = 3;
 const IMPACT_DURATION_MS = 900;
 
 interface BattleGameProps {
