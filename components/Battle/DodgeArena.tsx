@@ -8,8 +8,12 @@ import {
     spawnRain,
     spawnBones,
     spawnHoming,
+    spawnTv,
     updateBullets,
+    updateTvs,
     checkCollision,
+    TV_SIZE,
+    BEAM_THICKNESS,
 } from './bulletPatterns';
 
 const BOX_W = 440;
@@ -18,9 +22,10 @@ const SOUL_R = 5;
 const SOUL_SPEED = 0.17; // px/ms
 const IFRAME_MS = 650;
 const HEART_PATH = 'M10 18l-1-1C4 12 1 9 1 5a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4-3 7-8 12l-1 1z';
+const TV_IMAGE_SRC = '/images/television.png';
 
 interface DodgeArenaProps {
-    patternIndex: 0 | 1 | 2;
+    patternIndex: 0 | 1 | 2 | 3;
     duration: number;
     enemyAtk: number;
     onHit: (damage: number) => void;
@@ -40,6 +45,9 @@ const DodgeArena: React.FC<DodgeArenaProps> = ({ patternIndex, duration, enemyAt
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
+
+        const tvImage = new Image();
+        tvImage.src = TV_IMAGE_SRC;
 
         const heartPath = new Path2D(HEART_PATH);
         const soul = { x: BOX_W / 2, y: BOX_H / 2 };
@@ -84,9 +92,11 @@ const DodgeArena: React.FC<DodgeArenaProps> = ({ patternIndex, duration, enemyAt
                 const box = { w: BOX_W, h: BOX_H };
                 if (patternIndex === 0) spawnRain(elapsed, patternState, box, bullets);
                 else if (patternIndex === 1) spawnBones(elapsed, patternState, box, bullets);
-                else spawnHoming(elapsed, patternState, box, bullets, soul);
+                else if (patternIndex === 2) spawnHoming(elapsed, patternState, box, bullets, soul);
+                else spawnTv(elapsed, patternState, box, bullets, soul);
 
                 bullets = updateBullets(bullets, dt, box);
+                bullets = updateTvs(bullets, elapsed, soul, box);
 
                 if (elapsed >= iframeUntil && checkCollision(bullets, soul, SOUL_R)) {
                     iframeUntil = elapsed + IFRAME_MS;
@@ -104,13 +114,44 @@ const DodgeArena: React.FC<DodgeArenaProps> = ({ patternIndex, duration, enemyAt
             ctx.lineWidth = 3;
             ctx.strokeRect(2, 2, BOX_W - 4, BOX_H - 4);
 
-            ctx.fillStyle = '#f5f5f5';
             for (const b of bullets) {
                 if (b.kind === 'orb') {
+                    ctx.fillStyle = '#f5f5f5';
                     ctx.beginPath();
                     ctx.arc(b.x, b.y, b.r ?? 5, 0, Math.PI * 2);
                     ctx.fill();
+                } else if (b.kind === 'tv') {
+                    const half = TV_SIZE / 2;
+
+                    if (b.tvPhase === 'charge') {
+                        const pulse = 0.5 + 0.5 * Math.sin(elapsed / 60);
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        ctx.restore();
+                    } else if (b.tvPhase === 'fire') {
+                        ctx.save();
+                        ctx.lineCap = 'round';
+                        ctx.lineWidth = BEAM_THICKNESS + 8;
+                        ctx.beginPath();
+                        ctx.moveTo(b.x, b.y);
+                        ctx.lineTo(b.beamEndX ?? b.x, b.beamEndY ?? b.y);
+                        ctx.stroke();
+                        ctx.strokeStyle = '#fff1f1';
+                        ctx.lineWidth = BEAM_THICKNESS;
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+
+                    if (tvImage.complete && tvImage.naturalWidth > 0) {
+                        ctx.drawImage(tvImage, b.x - half, b.y - half, TV_SIZE, TV_SIZE);
+                    } else {
+                        ctx.fillStyle = '#888888';
+                        ctx.fillRect(b.x - half, b.y - half, TV_SIZE, TV_SIZE);
+                    }
                 } else {
+                    ctx.fillStyle = '#f5f5f5';
                     ctx.fillRect(b.x, b.y, b.w ?? 0, b.h ?? 0);
                 }
             }

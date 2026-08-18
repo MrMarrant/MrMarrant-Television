@@ -17,7 +17,7 @@ export interface BattleEnemy {
 export const ENEMY: BattleEnemy = {
     name: 'MrMarrant',
     image: '/images/enemy.png',
-    maxHp: 50,
+    maxHp: 40,
     atk: 4,
     introText: [
         '* MRMARRANT blocks your path!',
@@ -42,7 +42,7 @@ export const ENEMY: BattleEnemy = {
             label: 'Turn off',
             response: [
                 '* You try to turn off the TV.',
-                '* Nothing happens. Somehow it still works.',
+                '* Nothing happeeeeen ...',
             ],
         },
         {

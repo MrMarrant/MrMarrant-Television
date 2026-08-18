@@ -96,7 +96,7 @@ const ActionMenu: React.FC<{ selected: number; onSelect: (i: number) => void; on
                 key={label}
                 onClick={() => onSelect(i)}
                 onMouseEnter={() => onHover(i)}
-                className={`flex items-center gap-1 border-2 px-2 py-1 transition-colors ${selected === i ? 'border-yellow-500 text-yellow-500' : 'border-orange-500 hover:border-yellow-500 hover:text-yellow-500'
+                className={`flex items-center justify-center gap-1 w-16 md:w-32 border-2 px-2 py-1 transition-colors ${selected === i ? 'border-yellow-500 text-yellow-500' : 'border-orange-500 hover:border-yellow-500 hover:text-yellow-500'
                     }`}
             >
                 <Icon size={16} />
@@ -177,7 +177,7 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
         setResultKind(kind);
         setPhase('result');
         AudioPlayer.stop();
-        AudioPlayer.playSfx("../sounds/ending_a2.ogg");
+        AudioPlayer.playSfx("../sounds/mrmarrant_theme_end.mp3");
     };
 
     const goToMenu = () => {
@@ -205,7 +205,7 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
                 return;
             }
             else {
-                setDialogueText("* You can't bring yourself to spare them yet.");
+                setDialogueText("* Nah, you can\'t spare it yet.");
                 setPhase('dialogue');
             }
         }
@@ -213,6 +213,9 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
 
     const chooseAct = (opt: ActOption) => {
         if (opt.label != 'Check') setUsedActs((prev) => new Set(prev).add(opt.label));
+        if (opt.label == 'Turn off') {
+            closeGame();
+        }
         setDialogueContext('act');
         setDialogueText(opt.response.join('\n'));
         setPhase('dialogue');
@@ -236,6 +239,7 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
         setEnemyHp(next);
         setLastDamage(damage);
         setPhase('impact');
+        AudioPlayer.playSfx("../sounds/attack.mp3");
         setTimeout(() => {
             if (next <= 0) finishBattle('win-fight');
             else startDodge();
@@ -244,6 +248,7 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
 
     const handleHit = (damage: number) => {
         setPlayerHp((prev) => Math.max(0, prev - damage));
+        AudioPlayer.playSfx("../sounds/on_hit.mp3");
     };
 
     const handleDodgeComplete = () => {
@@ -253,9 +258,14 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
 
     const confirmResult = () => {
         if (closingRef.current) return;
+        closeGame();
+    };
+
+    const closeGame = () => {
         closingRef.current = true;
         setClosing(true);
-        setTimeout(() => onExit(), 550);
+        setTimeout(() => onExit(), 100);
+        return;
     };
 
     useEffect(() => {
@@ -351,7 +361,7 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
             <div className="flex-1 flex flex-col items-center justify-center gap-3 px-6 pt-4">
                 {showEnemy && (
                     <>
-                        <div className="text-xs md:text-2xl uppercase tracking-widest text-red-400">{ENEMY.name}</div>
+                        <div className="text-xs md:text-2xl uppercase tracking-widest text-white-400">{ENEMY.name}</div>
                         <div className={`relative ${phase === 'impact' ? 'animate-enemy-hit' : ''}`}>
                             <EnemySprite />
                             {phase === 'impact' && lastDamage !== null && (
@@ -366,7 +376,7 @@ const BattleGame: React.FC<BattleGameProps> = ({ onExit }) => {
                 {phase === 'dodge' && (
                     <DodgeArena
                         key={turnCount}
-                        patternIndex={(turnCount % 3) as 0 | 1 | 2}
+                        patternIndex={(turnCount % 4) as 0 | 1 | 2 | 3}
                         duration={DODGE_DURATION_MS}
                         enemyAtk={ENEMY.atk}
                         onHit={handleHit}

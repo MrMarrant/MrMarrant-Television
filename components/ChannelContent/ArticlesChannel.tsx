@@ -71,7 +71,7 @@ const ArticlesChannel: React.FC<ArticlesChannelProps> = ({ onPowerOff }) => {
                     <div
                         onClick={() => {
                             AudioPlayer.stop();
-                            AudioPlayer.play("../sounds/run_a2.ogg");
+                            AudioPlayer.play("../sounds/mrmarrant_theme.mp3");
                             setInBattle(true);
                         }}
                         className="flex items-center border-2 border-orange-500 px-1 p-1 hover:border-yellow-500 hover:text-yellow-500 sm:scale-75 md:scale-100 lg:scale-150 cursor-pointer"
