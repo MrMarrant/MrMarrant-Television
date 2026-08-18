@@ -44,6 +44,7 @@ export default function TVApp() {
         }
         else {
             AudioPlayer.stop();
+            AudioPlayer.playSfx("../sounds/turn_off.mp3");
         }
     };
 

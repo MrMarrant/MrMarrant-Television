@@ -48,11 +48,17 @@ export class AudioPlayer {
     }
 
     static stop(): void {
-        if (!AudioPlayer.currentAudio) return;
+        if (AudioPlayer.currentAudio) {
+            AudioPlayer.currentAudio.pause();
+            AudioPlayer.currentAudio.currentTime = 0;
+            AudioPlayer.currentAudio = null;
+        }
 
-        AudioPlayer.currentAudio.pause();
-        AudioPlayer.currentAudio.currentTime = 0;
-        AudioPlayer.currentAudio = null;
+        if (AudioPlayer.sfxAudio) {
+            AudioPlayer.sfxAudio.pause();
+            AudioPlayer.sfxAudio.currentTime = 0;
+            AudioPlayer.sfxAudio = null;
+        }
     }
 
     static setLoop(loop: boolean): void {

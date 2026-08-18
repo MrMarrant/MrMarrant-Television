@@ -66,7 +66,7 @@ const Television: React.FC<TVProps> = ({ state, onPowerOff }) => {
       case ChannelType.PROJECTS: return <ProjectsChannel />;
       case ChannelType.SCP: return <SCPChannel />;
       case ChannelType.ART: return <ArtChannel />;
-      case ChannelType.ARTICLES: return <ArticlesChannel />;
+      case ChannelType.ARTICLES: return <ArticlesChannel onPowerOff={onPowerOff} />;
       default: return <StaticChannel />;
     }
   };
