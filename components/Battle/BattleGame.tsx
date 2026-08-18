@@ -114,7 +114,9 @@ const ActSelectMenu: React.FC<{
     onBack: () => void;
 }> = ({ options, selected, onSelect, onHover, onBack }) => (
     <div className="articles-border">
-        <p className="text-xs md:text-sm mb-2 text-neutral-400">* What will you do? (ESC to go back)</p>
+        <button onClick={onBack} className="mb-3 text-[10px] md:text-xs text-neutral-500 hover:text-white">
+            &lt; Back
+        </button>
         <div className="grid grid-cols-2 gap-2">
             {options.map((opt, i) => (
                 <button
@@ -127,9 +129,6 @@ const ActSelectMenu: React.FC<{
                 </button>
             ))}
         </div>
-        <button onClick={onBack} className="mt-3 text-[10px] md:text-xs text-neutral-500 hover:text-white">
-            &lt; Back
-        </button>
     </div>
 );
 
